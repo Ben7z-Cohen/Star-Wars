@@ -17,7 +17,7 @@ const SignInPage = () => {
                 </div>
                 <div className="flex justify-between">
                     <Link to={"/sign-up"} >
-                        <a class="mt3 f6 link dim black db">Sign up</a>
+                        <a className="mt3 f6 link dim black db">Sign up</a>
                     </Link>
                 </div>
             </main>
