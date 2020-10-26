@@ -5,7 +5,7 @@ import { apiCall } from '../../server/utilites'
 export const getFilmNameByRateOrReleaseDate = async (filmsUrlsHashMap) => {
     let filmsNameByRate = [];
     for (const filmUrl in filmsUrlsHashMap) {
-        const film = await apiCall(filmUrl);
+        const film = await apiCall(filmUrl.replace("http", "https"));
         filmsNameByRate.push({
             name: film.title,
             releaseDate: film.release_date,
