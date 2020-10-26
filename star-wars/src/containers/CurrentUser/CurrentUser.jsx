@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useRef} from 'react'
 import { auth, createUserProfileDocument } from '../../firebase/firebase-utils';
 import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux'
@@ -12,11 +12,11 @@ const CurrentUser = () => {
     const dispatch = useDispatch();
     const history = useHistory()
     const currentUser = useSelector(state => state.currentUser)
+    const unsubscribeFromAuth = useRef(null)
 
-    let unsubscribeFromAuth = null
 
     useEffect(() => {
-        unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+        unsubscribeFromAuth.current = auth.onAuthStateChanged(async userAuth => {
             if (userAuth) {
                 const userRef = await createUserProfileDocument(userAuth)
                 userRef.onSnapshot(snapShot => {
@@ -32,7 +32,7 @@ const CurrentUser = () => {
             }
         })
         return () => {
-            unsubscribeFromAuth = null
+            unsubscribeFromAuth.current = null
         }
     }, [])
 
