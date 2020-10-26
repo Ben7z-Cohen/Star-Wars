@@ -1,9 +1,10 @@
 import React from 'react';
-import CurrentUser from '../CurrentUser/CurrentUser';
-import NavLinks from '../../components/NavLink';
+import CurrentUser from '../containers/CurrentUser/CurrentUser';
+import NavLinks from '../components/NavLink';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 
+//Todo: enum for all the urls
 const Navigation = () => {
     {
         return (

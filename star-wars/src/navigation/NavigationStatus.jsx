@@ -1,18 +1,21 @@
 import React from 'react'
 import { auth } from '../firebase/firebase-utils'
-import NavLink from './NavLink';
+import NavLink from '../components/NavLink';
 import { useLocation } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { signOutAndClearSession } from '../redux/user/user-thunk'
 
+const NavigationStatus = () => {
 
-//Todo: change the name of the component.
-const ConnectedComponent = () => {
     const location = useLocation()
+    const dispatch = useDispatch();
 
     const handleSignOut = () => {
-        auth.signOut()
+        dispatch(signOutAndClearSession(auth))
     }
 
     return (
+
         <div className='flex'>
             { location.pathname.endsWith('suggested') ?
                 <NavLink link={'/user'} name={'Star Wars Characters'} />
@@ -26,4 +29,4 @@ const ConnectedComponent = () => {
     )
 }
 
-export default ConnectedComponent
+export default NavigationStatus

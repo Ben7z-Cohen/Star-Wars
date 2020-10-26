@@ -4,7 +4,7 @@ import Sso from './Sso';
 import { ssoFactory } from './Sso Util/sso-utils';
 import { Link } from 'react-router-dom';
 
-const SignInContainer = () => {
+const SignInPage = () => {
 
     return (
         <article className="br3 ba b--black-10 mv4 mw6  shadow-5 center">
@@ -25,4 +25,4 @@ const SignInContainer = () => {
     )
 }
 
-export default SignInContainer
+export default SignInPage

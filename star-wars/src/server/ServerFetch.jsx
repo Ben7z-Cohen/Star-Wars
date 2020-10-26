@@ -1,4 +1,4 @@
-import { useEffect, useState } from './node_modules/react'
+import { useEffect, useState } from 'react'
 
 export const useFetch = (url, options, renderOnChange = []) => {
 
@@ -8,8 +8,8 @@ export const useFetch = (url, options, renderOnChange = []) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await fetch(url, options);
-                setResponse(res);
+                const response = await fetch(url, options);
+                setResponse(response);
             } catch (error) {
                 setError(error);
             }

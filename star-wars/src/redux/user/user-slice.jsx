@@ -4,7 +4,7 @@ const initialState = {
     name: '',
     email: '',
     id: '',
-    favorites: []
+    favorites: [],
 }
 
 const userSlice = createSlice({
@@ -17,28 +17,25 @@ const userSlice = createSlice({
                     ...state,
                     name: action.payload.displayName,
                     email: action.payload.email,
-                    id: action.payload.id
+                    id: action.payload.id,
+                    favorites: action.payload.favorites,
                 }
             }
             return initialState
         },
-        setFavorites: (state, action) => {
-            return {
-                ...state,
-                favorites: action.payload
-            }
+        signOut: () => {
+            return initialState
         },
-        addToFavorite: (state, action) => {
+        addFavoriteToStore: (state, action) => {
             return {
                 ...state,
                 favorites: [...state.favorites, action.payload]
             }
         },
-        removeFromFavorite: (state, action) => {
+        removeFavoriteFromStore: (state, action) => {
             return {
                 ...state,
                 favorites: state.favorites.filter(item => item !== action.payload)
-                    
             }
         }
     }
@@ -46,9 +43,8 @@ const userSlice = createSlice({
 );
 
 
-
 const { actions, reducer } = userSlice;
 
-export const { setUser, setFavorites, addToFavorite, removeFromFavorite } = actions;
+export const { setUser, addFavoriteToStore, removeFavoriteFromStore, signOut } = actions;
 
 export default reducer

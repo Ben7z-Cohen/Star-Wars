@@ -1,13 +1,15 @@
 import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
-import userReducer from './storeSlices/user-slice';
-import cardsReducer from './storeSlices/cards-slice'
+import userReducer from './user/user-slice';
+import charactersReducer from './characters/characters-slice'
+import moviesReducer from './movies/movies-slice'
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 
 const store = configureStore({
     reducer: {
         currentUser: userReducer,
-        cardsReducer: cardsReducer
+        charactersReducer: charactersReducer,
+        moviesReducer: moviesReducer
     },
     middleware: [thunk, logger, ...getDefaultMiddleware()],
     devTools: process.env.NODE_ENV !== 'production'

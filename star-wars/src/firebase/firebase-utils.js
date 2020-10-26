@@ -38,19 +38,19 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 }
 
 
-export const getUserFavoriteData = async userId => {
-    const cartsRef = firestore.collection('users').doc(userId);
-    const snapShot = await cartsRef.get();
-    return snapShot.data()['favorites']
-};
+export const addToFireBaseFavorites = async (collectionKey, fieldToAdd) => {
+    const docRef = firestore.collection(`users`).doc(collectionKey)
+    return docRef.update({
+        favorites: firebase.firestore.FieldValue.arrayUnion(fieldToAdd)
+    });
+}
 
-
-export const addCollectionAndDocuments = (
-    collectionKey,
-) => {
-    const collectionRef = firestore.collection(`users`).doc(collectionKey);
-    return collectionRef
-};
+export const removeFromFireBaseFavorites = async (collectionKey, fieldToRemove) => {
+    const docRef = firestore.collection(`users`).doc(collectionKey)
+    return docRef.update({
+        favorites: firebase.firestore.FieldValue.arrayRemove(fieldToRemove)
+    });
+}
 
 
 firebase.initializeApp(config);

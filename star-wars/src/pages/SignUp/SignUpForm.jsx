@@ -33,13 +33,16 @@ const SignUpForm = () => {
         <form onSubmit={(e) => handleSubmit(e)} >
             <fieldset id="sign_in" className="ba b--transparent ph0 mh0">
                 <div className="mv3">
-                    <InputBox value={displayName} onChange={setName} name='Name' typ='text' />
+                    <InputBox value={displayName} onChange={setName}
+                        name='Name' typ='text' />
                 </div>
                 <div className="mv3">
-                    <InputBox value={email} onChange={setEmail} name='Email' type='email' />
+                    <InputBox value={email} onChange={setEmail}
+                        name='Email' type='email' />
                 </div>
                 <div className="mv3">
-                    <InputBox name="Password" value={password} onChange={setPassword} type='password' />
+                    <InputBox name="Password" value={password}
+                        onChange={setPassword} type='password' />
                 </div>
                 <div className="mv3">
                     <InputBox name='Confirm password' value={confirmPassword}
