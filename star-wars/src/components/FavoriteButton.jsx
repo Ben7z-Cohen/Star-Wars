@@ -6,10 +6,8 @@ const FavoriteButton = ({ clickHandler, isFavorite }) => {
     return (
         <div className="ml7" onClick={() => clickHandler()}>
             {isFavorite ?
-                <FavoriteIcon style = {{fontSize:'2.5rem'}} /> :
-                <FavoriteBorderIcon style = {{fontSize:'2.5rem'}} />
-                /* <button>Favorite</button> :
-                <button >Not Favorite</button> */
+                <FavoriteIcon style={{ fontSize: '2.5rem' }} /> :
+                <FavoriteBorderIcon style={{ fontSize: '2.5rem' }} />
             }
         </div>
     )

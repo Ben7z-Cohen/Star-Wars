@@ -27,9 +27,6 @@ const CurrentUser = () => {
                 })
                 history.push('/user')
             }
-            else {
-                setUser(userAuth)
-            }
         })
         return () => {
             unsubscribeFromAuth.current = null
