@@ -15,27 +15,24 @@ const CharactersCard = ({ name }) => {
     const CardWithFavoriteButton = withCard(FavoriteButton)
 
     const currentUser = useSelector(state => state.currentUser)
-    const userRef = useRef()
-    userRef.current = currentUser
-
-
 
     useEffect(() => {
-        setIsFavorite(userRef.current.favorites.indexOf(name) !== -1)
-    }, [userRef.current.favorites])
+        setIsFavorite(currentUser.favorites.indexOf(name) !== -1)
+    }, [currentUser.favorites])
 
     const favoriteButtonWasPushed = () => {
         if (isFavorite) {
-            dispatch(removeFromFavorites(userRef.current.id, name))
+            dispatch(removeFromFavorites(currentUser.id, name))
         }
         else {
-            dispatch(addToFavorites(userRef.current.id, name))
+            dispatch(addToFavorites(currentUser.id, name))
         }
     }
 
     return (
         <div>
-            <CardWithFavoriteButton name={name} width={pictureWidth} hieght={picturehieght}
+            <CardWithFavoriteButton name={name} width={pictureWidth}
+                hieght={picturehieght}
                 picUrl={pictureUrl} clickHandler={favoriteButtonWasPushed}
                 isFavorite={isFavorite} />
         </div>

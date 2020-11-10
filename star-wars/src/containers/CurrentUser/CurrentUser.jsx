@@ -34,7 +34,7 @@ const CurrentUser = () => {
         return () => {
             unsubscribeFromAuth.current = null
         }
-    }, [])
+    }, [auth])
 
     return (
         <div>

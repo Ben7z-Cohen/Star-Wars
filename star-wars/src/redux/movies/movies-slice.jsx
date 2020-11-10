@@ -17,7 +17,6 @@ const moviesSlice = createSlice({
             }
         },
         requestSuccess: (state, action) =>  {
-            console.log(action.payload)
             return {
                 ...state,
                 isPending: false,

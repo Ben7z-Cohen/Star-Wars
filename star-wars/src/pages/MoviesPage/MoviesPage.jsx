@@ -14,8 +14,6 @@ const MoviesPage = () => {
     const [searchValue, setSearchValue] = useState('')
     const [filteredMovies, setFilteredMovies] = useState([])
 
-    const moviesRef = useRef();
-    moviesRef.current = movies
 
     const onSearchChange = (event) => {
         setSearchValue(event.target.value)
@@ -26,11 +24,11 @@ const MoviesPage = () => {
 
 
     useEffect(() => {
-        const moviesNames = moviesRef.current
+        const moviesNames = movies
         setFilteredMovies(moviesNames.filter(movie => {
             return movie.name.toLowerCase().includes(searchValue.toLowerCase())
         }))
-    }, [searchValue, moviesRef.current])
+    }, [searchValue])
 
     return (
         <div>
